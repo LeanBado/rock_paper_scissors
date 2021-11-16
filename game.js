@@ -12,18 +12,20 @@ let computerScore = 0;
 
 function playRound(playerSelection){
     const computerSelection = computerPlay(); 
-    if(playerSelection.toLowerCase() == "rock" && computerSelection == "rock"){
+    playerSelection = playerSelection.toLowerCase();
+    if(playerSelection == "rock" && computerSelection == "rock"){
         return "you tied";
         playerScore ++;
         computerScore ++;
-    } else if (playerSelection.toLowerCase() == "rock" && computerSelection == "paper"){
+    } else if (playerSelection == "rock" && computerSelection == "paper"){
         return "you lose";
         computerScore ++;
-    } else if (playerSelection.toLowerCase() == "rock" && computerSelection == "scissor"){
+    } else if (playerSelection == "rock" && computerSelection == "scissor"){
         return "you win";
         playerScore ++;
     }
 }
+
 function game(){
     console.log(playRound(playerSelection));
     console.log(playRound(playerSelection));
@@ -33,12 +35,9 @@ function game(){
 }
 game()
 
-function score(){
-    playRound();
-    if(playerScore == 5){
+function score(playerScore, computerScore){
+    if(playerScore > computerScore){
         return "YOU WIN THE MATCH"
-    } else if (computerScore == 5){
-        return "YOU LOSE THE MATCH"
-    }
+    } else return "YOU LOSE THE MATCH"
 }
 
