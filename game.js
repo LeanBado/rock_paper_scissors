@@ -6,17 +6,39 @@ function computerPlay(){
 
 const computerSelection = computerPlay(); 
 
-let playerSelection = "RoCk"
+let playerSelection = "RoCk";
+let playerScore = 0;
+let computerScore = 0;
 
-console.log(playRound(playerSelection, computerSelection))
-
-function playRound(playerSelection, computerSelection){
+function playRound(playerSelection){
+    const computerSelection = computerPlay(); 
     if(playerSelection.toLowerCase() == "rock" && computerSelection == "rock"){
         return "you tied";
+        playerScore ++;
+        computerScore ++;
     } else if (playerSelection.toLowerCase() == "rock" && computerSelection == "paper"){
         return "you lose";
+        computerScore ++;
     } else if (playerSelection.toLowerCase() == "rock" && computerSelection == "scissor"){
         return "you win";
+        playerScore ++;
+    }
+}
+function game(){
+    console.log(playRound(playerSelection));
+    console.log(playRound(playerSelection));
+    console.log(playRound(playerSelection));
+    console.log(playRound(playerSelection));
+    console.log(playRound(playerSelection));
+}
+game()
+
+function score(){
+    playRound();
+    if(playerScore == 5){
+        return "YOU WIN THE MATCH"
+    } else if (computerScore == 5){
+        return "YOU LOSE THE MATCH"
     }
 }
 
